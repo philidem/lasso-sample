@@ -95,3 +95,11 @@ require('optimizer').configure({
 |---------|--------------------------------------------------------------------|
 | /       | Serves index page. HTML is produced by rendering `src/index.marko` |
 | /static | Serves static files from the `static` directory                    |
+
+### Client-side Template Rendering
+The `src/app.js` file loads `src/hello.marko` template. The `optimizer` sees
+that the template is required by a client-side resource so it automatically
+adds the compiled template to the client bundle.
+
+On the client-side, the template is rendered and the resultant HTML is added
+to a new `DIV` and appended to the DOM.
