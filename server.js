@@ -2,17 +2,12 @@ var HTTP_PORT = 8080;
 
 Error.stackTraceLimit = Infinity;
 
-//
-require('app-module-path').addPath(__dirname);
-
 require('colors');
 
 require('marko/browser-refresh').enable();
 require('optimizer/browser-refresh').enable('*.marko *.css *.less');
 
 // Configure the optimizer...
-// Even though you can use multiple optimizer instances, we only need to
-// configure the default optimizer since we're only using the default.
 require('optimizer').configure({
 	// Don't fingerprint files for development
 	fingerprintsEnabled: false,
@@ -58,7 +53,7 @@ app.get('/', function(req, res) {
 
 var serveStatic = require('serve-static');
 app.use('/static', serveStatic('static', {
-	'index': ['default.html', 'default.htm']
+	'index': ['index.html']
 }));
 
 // Listen on given port
