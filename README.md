@@ -1,7 +1,7 @@
 # lasso-sample
 Simple app to demonstrate using Lasso. This sample app uses `express`
 to start an HTTP server. The index file routes render a `marko` template
-that is using the `optimizer` taglib. The `optimizer` taglib will automatically
+that is using the `lasso` taglib. The `lasso` taglib will automatically
 bundle all of the required dependencies and put them in the `static` directory.
 
 ## Install Dependencies
@@ -37,8 +37,8 @@ An instance of `express` is listening on port `8080`.
 
 **Development configuration:**
 ```javascript
-// Configure the optimizer...
-require('optimizer').configure({
+// Configure the lasso...
+require('lasso').configure({
 	// Don't fingerprint files for development
 	fingerprintsEnabled: false,
 
@@ -48,24 +48,24 @@ require('optimizer').configure({
 	// Don't minify for development
 	minify: false,
 
-	// Set appropriate optimizer flags for development
+	// Set appropriate lasso flags for development
 	flags: ['raptor-logging/browser', 'development'],
 
 	// Use the "development" cache profile
 	cacheProfile: 'development',
 
 	plugins: [
-        'optimizer-marko',
-        'optimizer-less',
-        'optimizer-image'
+        'lasso-marko',
+        'lasso-less',
+        'lasso-image'
     ]
 });
 ```
 
 **Production configuration:**
 ```javascript
-// Configure the optimizer...
-require('optimizer').configure({
+// Configure the lasso...
+require('lasso').configure({
 	// Fingerprint files for production
 	fingerprintsEnabled: true,
 
@@ -75,16 +75,16 @@ require('optimizer').configure({
 	// Don't minify for development
 	minify: true,
 
-	// Set appropriate optimizer flags for development
+	// Set appropriate lasso flags for development
 	flags: ['raptor-logging/browser'],
 
 	// Use the "production" cache profile
 	cacheProfile: 'production',
 
 	plugins: [
-        'optimizer-marko',
-        'optimizer-less',
-        'optimizer-image'
+        'lasso-marko',
+        'lasso-less',
+        'lasso-image'
     ]
 });
 ```
@@ -97,7 +97,7 @@ require('optimizer').configure({
 | /static | Serves static files from the `static` directory                    |
 
 ### Client-side Template Rendering
-The `src/app.js` file loads `src/hello.marko` template. The `optimizer` sees
+The `src/app.js` file loads `src/hello.marko` template. The `lasso` sees
 that the template is required by a client-side resource so it automatically
 adds the compiled template to the client bundle.
 

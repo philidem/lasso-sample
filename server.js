@@ -5,10 +5,10 @@ Error.stackTraceLimit = Infinity;
 require('colors');
 
 require('marko/browser-refresh').enable();
-require('optimizer/browser-refresh').enable('*.marko *.css *.less');
+require('lasso/browser-refresh').enable('*.marko *.css *.less *.png widget.js');
 
-// Configure the optimizer...
-require('optimizer').configure({
+// Configure the lasso...
+require('lasso').configure({
 	// Don't fingerprint files for development
 	fingerprintsEnabled: false,
 
@@ -18,16 +18,16 @@ require('optimizer').configure({
 	// Don't minify for development
 	minify: false,
 
-	// Set appropriate optimizer flags for development
+	// Set appropriate lasso flags for development
 	flags: ['raptor-logging/browser', 'development'],
 
 	// Use the "development" cache profile
 	cacheProfile: 'development',
 
 	plugins: [
-        'optimizer-marko',
-        'optimizer-less',
-        'optimizer-image'
+        'lasso-marko',
+        'lasso-less',
+        'lasso-image'
     ]
 });
 
