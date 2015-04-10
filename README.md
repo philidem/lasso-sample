@@ -69,13 +69,13 @@ require('lasso').configure({
 	// Fingerprint files for production
 	fingerprintsEnabled: true,
 
-	// Don't create bundles for development
+	// Create bundles for production
 	bundlingEnabled: true,
 
-	// Don't minify for development
+	// Don't minify for production
 	minify: true,
 
-	// Set appropriate lasso flags for development
+	// Set appropriate lasso flags for production
 	flags: ['raptor-logging/browser'],
 
 	// Use the "production" cache profile
